@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Pixel Drawing</title>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				user-select: none;
+				box-sizing: border-box;
+			}
+
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+			}
+
+			canvas {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				border: 5px solid black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="600" height="600"></canvas>
+
+		<script src="values.js"></script>
+		<script src="properties.js"></script>
+		<script src="index.js"></script>
+		<script src="draw.js"></script>
+	</body>
+</html>
