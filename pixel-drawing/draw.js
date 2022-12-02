@@ -1,4 +1,4 @@
-pixel(5, 5);
-pixel(6, 6);
-pixel(7, 7);
-pixel(8, 8);
+setPixel(5, 5);
+setPixel(6, 6);
+setPixel(7, 7);
+setPixel(8, 8);

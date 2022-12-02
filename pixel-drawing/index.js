@@ -29,7 +29,18 @@ function clear(x = 0, y = 0, width = canvas.width, height = canvas.height) {
  * @param {number} y The y coordinate of the canvas
  * @param {string} color The color to be set
  */
-function pixel(x, y, color = colors.black) {
+function setPixel(x, y, color = colors.black) {
 	context.fillStyle = color;
 	context.fillRect(x * properties.scale, y * properties.scale, properties.scale, properties.scale);
+}
+
+/**
+ * returns the color of the specified pixel
+ *
+ * @param {number} x The x coordinate of the canvas
+ * @param {number} y The y coordinate of the canvas
+ * @return {[number, number, number, number]} The color value of the canvas at the specified pixel position
+ */
+function getPixel(x, y) {
+	return context.getImageData(x * properties.scale, y * properties.scale, 1, 1).data;
 }
