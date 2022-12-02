@@ -5,10 +5,10 @@ const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 
 /** @type {number} */
-const width = canvas.width;
+const width = canvas.width / properties.scale;
 
 /** @type {number} */
-const height = canvas.height;
+const height = canvas.height / properties.scale;
 
 /**
  * clears the canvas
