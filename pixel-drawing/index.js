@@ -33,7 +33,7 @@ function clear(x = 0, y = 0, width = canvas.width, height = canvas.height) {
  */
 function setPixel(x, y, color = colors.black) {
 	context.fillStyle = color;
-	context.fillRect(x, y, 1, 1);
+	context.fillRect(Math.floor(x), Math.floor(y), 1, 1);
 }
 
 /**
