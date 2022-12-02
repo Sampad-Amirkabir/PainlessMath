@@ -4,11 +4,13 @@ const canvas = document.getElementById("canvas");
 /** @type {CanvasRenderingContext2D} */
 const context = canvas.getContext("2d");
 
-/** @type {number} */
-const width = canvas.width / properties.scale;
+context.scale(properties.scale, properties.scale);
 
 /** @type {number} */
-const height = canvas.height / properties.scale;
+const width = canvas.width;
+
+/** @type {number} */
+const height = canvas.height;
 
 /**
  * clears the canvas
@@ -19,7 +21,7 @@ const height = canvas.height / properties.scale;
  * @param {number} height The height of the area to be cleared
  */
 function clear(x = 0, y = 0, width = canvas.width, height = canvas.height) {
-	context.clearRect(x * properties.scale, y * properties.scale, width * properties.scale, height * properties.scale);
+	context.clearRect(x, y, width, height);
 }
 
 /**
@@ -31,7 +33,7 @@ function clear(x = 0, y = 0, width = canvas.width, height = canvas.height) {
  */
 function setPixel(x, y, color = colors.black) {
 	context.fillStyle = color;
-	context.fillRect(x * properties.scale, y * properties.scale, properties.scale, properties.scale);
+	context.fillRect(x, y, 1, 1);
 }
 
 /**
@@ -42,5 +44,22 @@ function setPixel(x, y, color = colors.black) {
  * @return {[number, number, number, number]} The color value of the canvas at the specified pixel position
  */
 function getPixel(x, y) {
-	return context.getImageData(x * properties.scale, y * properties.scale, 1, 1).data;
+	return context.getImageData(x, y, 1, 1).data;
 }
+
+/**
+ * creates a new image from the specified url
+ *
+ * @param {string} url The url of the image
+ * @return {Promise<HTMLImageElement>} The image element
+ */
+async function image(url) {
+	return new Promise((resolve) => {
+		const img = new Image();
+		img.crossOrigin = "anonymous";
+		img.src = url;
+		img.onload = () => resolve(img);
+	});
+}
+
+draw();
